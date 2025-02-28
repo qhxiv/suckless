@@ -15,18 +15,17 @@ static const int showsystray        = 1;        /* 0 means no systray */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "sans-serif:pixelsize=13.5" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#ffffff";
-static const char col_cyan[]        = "#005577";
+static const char *fonts[]          = { "sans-serif:pixelsize=13" };
+static const char col_gray1[]       = "#111111";
+static const char col_gray2[]       = "#2c2c2c";
+static const char col_gray3[]       = "#888888";
+static const char col_gray4[]       = "#bbbbbb";
+static const char col_gray5[]       = "#eeeeee";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray4, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_gray4  },
-	[SchemeHid]  = { col_cyan,  col_gray1, col_cyan  },
+	[SchemeNorm] = { col_gray5, col_gray1, col_gray2 },
+	[SchemeSel]  = { col_gray1, col_gray4, col_gray5 },
+	[SchemeHid]  = { col_gray3, col_gray1, col_gray3 },
 };
 
 /* tagging */
@@ -69,8 +68,6 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { TERMINAL, NULL };
 
 #include "movestack.c"
@@ -78,16 +75,16 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
+	{ MODKEY,                       XK_j,      focusstackvis,  {.i = -1 } },
+	{ MODKEY,                       XK_k,      focusstackvis,  {.i = +1 } },
 	// { MODKEY|ShiftMask,             XK_j,      focusstackhid,  {.i = +1 } },
 	// { MODKEY|ShiftMask,             XK_k,      focusstackhid,  {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_h,      incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_l,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
