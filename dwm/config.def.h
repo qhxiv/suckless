@@ -16,16 +16,16 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "sans-serif:pixelsize=13" };
-static const char col_gray1[]       = "#111111";
-static const char col_gray2[]       = "#2c2c2c";
-static const char col_gray3[]       = "#888888";
-static const char col_gray4[]       = "#bbbbbb";
-static const char col_gray5[]       = "#eeeeee";
+static const char col_gray1[]       = "#222222";
+static const char col_gray2[]       = "#444444";
+static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray4[]       = "#eeeeee";
+static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray5, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray1, col_gray4, col_gray5 },
-	[SchemeHid]  = { col_gray3, col_gray1, col_gray3 },
+  /*               fg         bg         border   */
+  [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+  [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+  [SchemeHid]  = { col_cyan,  col_gray1, col_cyan  },
 };
 
 /* tagging */
