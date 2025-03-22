@@ -15,17 +15,22 @@ static const int showsystray        = 1;        /* 0 means no systray */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "sans-serif:pixelsize=13" };
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char *fonts[]          = { "sans-serif:pixelsize=13.5" };
+static const char col_gray1[]       = "#0a0a0a";
+static const char col_gray2[]       = "#555555";
+static const char col_gray3[]       = "#888888";
+static const char col_gray4[]       = "#ffffff";
+static const char col_cyan[]        = "#7788AA";
 static const char *colors[][3]      = {
   /*               fg         bg         border   */
   [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-  [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+  [SchemeSel]  = { col_gray4, col_gray1, col_gray4 },
   [SchemeHid]  = { col_cyan,  col_gray1, col_cyan  },
+	[SchemeStatus]  = { col_gray4, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_gray4, col_gray1,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]  = { col_gray4, col_gray1,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
@@ -88,8 +93,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_v,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
@@ -132,4 +137,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
