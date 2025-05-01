@@ -16,7 +16,7 @@ static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#0a0a0a";
 static const char col_gray2[]       = "#555555";
 static const char col_gray3[]       = "#888888";
-static const char col_gray4[]       = "#ffffff";
+static const char col_gray4[]       = "#deeeed";
 static const char col_cyan[]        = "#7788aa";
 static const unsigned int baralpha = 0xcc;
 static const unsigned int borderalpha = OPAQUE;
