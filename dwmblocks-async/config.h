@@ -21,7 +21,7 @@
     X("", "sb-volume", 2, 2)  \
     X("", "sb-battery", 1, 0)  \
     X("", "sb-wifi", 1, 0)  \
-    X("", "sb-date", 86400, 0)  \
+    X("", "sb-bluetooth", 1, 0)  \
     X("", "sb-time", 60, 0)
 
 #endif  // CONFIG_H
